@@ -10,6 +10,10 @@ const client = new Client({
         level: LogLevel.Debug
     },
     shards: 'auto',
+    defaultCooldown: {
+        limit: 1,
+        delay: 3,
+    },
     intents: [
         'GUILDS',
         'GUILD_MEMBERS',
