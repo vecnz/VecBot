@@ -7,7 +7,7 @@ import type { Message } from 'discord.js';
     preconditions: ['Moderator'],
 })
 export class UserCommand extends Command {
-    public async run(message: Message, args: Args) {
+    public async messageRun(message: Message, args: Args) {
         const user = await args.rest('member');
         const reason = await args.rest('string', { default: `No reason provided for softban. (${message.author.tag})`, minimum: 0 });
         if (user.id === message.author.id) return message.channel.send('You cannot softban yourself.');
