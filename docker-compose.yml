@@ -1,10 +1,37 @@
-version: "3.9"
+version: '3.8'
 
 services:
-  sapphire-sample-bot:
-    build:
-      context: .
-      target: development
-    env_file: .env
-    volumes: 
-      - ./:/opt/app
+  db:
+    image: postgres:alpine
+    container_name: VicVerify-db
+    restart: unless-stopped
+    # dev only
+    # ports:
+    #   - '5432:5432'
+    volumes:
+      - db:/var/lib/postgresql/data
+    env_file:
+      - '.env'
+
+  redis:
+    image: redis:alpine
+    container_name: VicVerify-redis
+    restart: unless-stopped
+    volumes:
+      - redis:/data
+    env_file:
+      - '.env'
+
+  bot:
+    container_name: VicVerify
+    restart: unless-stopped
+    image: ghcr.io/vecnz/verifybot:main
+    build: .
+    env_file:
+      - '.env'
+    depends_on:
+      - db
+
+volumes:
+  db:
+  redis:

@@ -1,16 +1,28 @@
-/.yarn/*
-!/.yarn/patches
-!/.yarn/plugins
-!/.yarn/releases
-!/.yarn/sdks
+# Ignore a blackhole and the folder for development
+node_modules/
+.vs/
+.idea/
+*.iml
 
-# Swap the comments on the following lines if you don't wish to use zero-installs
-# Documentation here: https://yarnpkg.com/features/zero-installs
-!/.yarn/cache
-#/.pnp.*
+# Yarn files
+.yarn/install-state.gz
+.yarn/build-state.yml
 
-# config
+# Environment variables
+.DS_Store
+
+dist/
+
+# Ignore heapsnapshot and log files
+*.heapsnapshot
+*.log
+
+# Ignore npm lockfiles file
+package-lock.json
+
+# Environment variables
 .env
-
-#built
-dist
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local

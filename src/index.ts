@@ -1,42 +1,39 @@
-import './lib/setup';
-import { LogLevel } from '@sapphire/framework';
-import { Client } from './lib/client';
+import '#lib/setup';
+import { container, SapphireClient } from '@sapphire/framework';
+import { PrismaClient } from '@prisma/client';
+import { envParseInteger, envParseString } from '@skyra/env-utilities';
+import { ScheduledTaskRedisStrategy } from '@sapphire/plugin-scheduled-tasks/register-redis';
 
-const client = new Client({
-    defaultPrefix: 'dr!',
-    regexPrefix: /^(hey +)?bot[,! ]/i,
-    caseInsensitiveCommands: true,
-    logger: {
-        level: LogLevel.Debug
-    },
-    shards: 'auto',
-    defaultCooldown: {
-        limit: 1,
-        delay: 3,
-    },
-    intents: [
-        'GUILDS',
-        'GUILD_MEMBERS',
-        'GUILD_BANS',
-        'GUILD_EMOJIS_AND_STICKERS',
-        'GUILD_VOICE_STATES',
-        'GUILD_MESSAGES',
-        'GUILD_MESSAGE_REACTIONS',
-        'DIRECT_MESSAGES',
-        'DIRECT_MESSAGE_REACTIONS'
-    ],
+const client = new SapphireClient({
+	shards: 'auto',
+	partials: ['MESSAGE', 'CHANNEL', 'REACTION'],
+	intents: ['GUILDS', 'GUILD_MESSAGES', 'GUILD_MEMBERS']
+	tasks: {
+		strategy: new ScheduledTaskRedisStrategy({
+			bull: {
+				connection: {
+					host: envParseString('REDIS_HOST')
+				}
+			}
+		})
+	}
 });
 
-const main = async () => {
-    try {
-        client.logger.info('Logging in');
-        await client.login();
-        client.logger.info('logged in');
-    } catch (error) {
-        client.logger.fatal(error);
-        client.destroy();
-        process.exit(1);
-    }
-};
+async function main() {
+	try {
+		// Connect to the Database
+		const db = new PrismaClient();
+		await db.$connect();
+		container.db = db;
 
-main();
+		// Login to the Discord gateway
+		await client.login();
+	} catch (error) {
+		container.logger.error(error);
+		client.destroy();
+		await container.db.$disconnect();
+		process.exit(1);
+	}
+}
+
+main().catch(container.logger.error.bind(container.logger));
