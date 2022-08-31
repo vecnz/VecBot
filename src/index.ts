@@ -1,13 +1,12 @@
 import '#lib/setup';
 import { container, SapphireClient } from '@sapphire/framework';
-import { PrismaClient } from '@prisma/client';
 import { envParseInteger, envParseString } from '@skyra/env-utilities';
 import { ScheduledTaskRedisStrategy } from '@sapphire/plugin-scheduled-tasks/register-redis';
 
 const client = new SapphireClient({
 	shards: 'auto',
 	partials: ['MESSAGE', 'CHANNEL', 'REACTION'],
-	intents: ['GUILDS', 'GUILD_MESSAGES', 'GUILD_MEMBERS']
+	intents: ['GUILDS', 'GUILD_MESSAGES', 'GUILD_MEMBERS'],
 	tasks: {
 		strategy: new ScheduledTaskRedisStrategy({
 			bull: {
@@ -21,17 +20,11 @@ const client = new SapphireClient({
 
 async function main() {
 	try {
-		// Connect to the Database
-		const db = new PrismaClient();
-		await db.$connect();
-		container.db = db;
-
 		// Login to the Discord gateway
 		await client.login();
 	} catch (error) {
 		container.logger.error(error);
 		client.destroy();
-		await container.db.$disconnect();
 		process.exit(1);
 	}
 }

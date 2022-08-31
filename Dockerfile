@@ -21,7 +21,6 @@ COPY --chown=node:node yarn.lock .
 COPY --chown=node:node package.json .
 COPY --chown=node:node .yarnrc.yml .
 COPY --chown=node:node .yarn/ .yarn/
-COPY --chown=node:node prisma/ .
 
 ENTRYPOINT ["dumb-init", "--"]
 
@@ -36,11 +35,9 @@ ENV NODE_ENV="development"
 COPY --chown=node:node tsconfig.base.json .
 COPY --chown=node:node tsup.config.ts .
 COPY --chown=node:node src/ src/
-COPY --chown=node:node prisma/ prisma/
 
 # Run the build process
 RUN yarn install --immutable
-RUN yarn run prisma generate
 RUN yarn run build
 
 ##############
@@ -55,7 +52,6 @@ ENV NODE_OPTIONS="--enable-source-maps --preserve-symlinks"
 WORKDIR /usr/src/app
 
 COPY --chown=node:node --from=build /usr/src/app/dist dist
-COPY --chown=node:node --from=build /usr/src/app/node_modules node_modules/.prisma
 COPY --chown=node:node --from=build /usr/src/app/node_modules ./node_modules
 COPY --chown=node:node start.sh /usr/src/app/start.sh
 
