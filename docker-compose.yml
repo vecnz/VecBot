@@ -3,7 +3,7 @@ version: '3.8'
 services:
   db:
     image: postgres:alpine
-    container_name: VicVerify-db
+    container_name: VecBot-db
     restart: unless-stopped
     # dev only
     # ports:
@@ -15,7 +15,7 @@ services:
 
   redis:
     image: redis:alpine
-    container_name: VicVerify-redis
+    container_name: VecBot-redis
     restart: unless-stopped
     volumes:
       - redis:/data
@@ -23,9 +23,9 @@ services:
       - '.env'
 
   bot:
-    container_name: VicVerify
+    container_name: VecBot
     restart: unless-stopped
-    image: ghcr.io/vecnz/verifybot:main
+    image: ghcr.io/vecnz/vecbot:main
     build: .
     env_file:
       - '.env'
