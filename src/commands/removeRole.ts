@@ -18,7 +18,7 @@ export class UserCommand extends Command {
 
 	public override async chatInputRun(interaction: Command.ChatInputInteraction) {
 		// get the users roles
-		const guild = interaction.guild;
+		const { guild } = interaction;
 		if (!guild) {
 			await interaction.reply({
 				content: 'You can only use this command in the VEC server.',
