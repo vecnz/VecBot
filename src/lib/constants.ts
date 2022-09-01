@@ -7,6 +7,7 @@ export const roles: { [key: string]: string } = {
 	VGDC: '1014687057421017141',
 	'Looking Glass': '1014687348673490944',
 	'Game Night': '946519293410029568',
+	'Social Events': '1014748172716871680',
 	'Class Rep': '959449106877669448',
 	Alumni: '866479683167453194'
 };
@@ -19,6 +20,7 @@ export const roleArray = [
 	'1014687057421017141',
 	'1014687348673490944',
 	'946519293410029568',
+	'1014748172716871680',
 	'959449106877669448',
 	'866479683167453194'
 ];
@@ -58,6 +60,11 @@ export const roleOptions: MessageSelectOptionData[] = [
 		label: 'Game Night',
 		description: 'Game Night',
 		value: roles['Game Night']
+	},
+	{
+		label: 'Social Events',
+		description: 'Social Events',
+		value: roles['Social Events']
 	},
 	{
 		label: 'Class Rep',
