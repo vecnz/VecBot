@@ -7,6 +7,7 @@ export const roles: { [key: string]: string } = {
 	VGDC: '1014687057421017141',
 	'Looking Glass': '1014687348673490944',
 	VAIML: '1016475957596540979',
+	EngiQueering: '1024518933224640542',
 	'Game Night': '946519293410029568',
 	'Social Events': '1014748172716871680',
 	'Class Rep': '959449106877669448',
@@ -21,6 +22,7 @@ export const roleArray = [
 	'1014687057421017141',
 	'1014687348673490944',
 	'1016475957596540979',
+	'1024518933224640542',
 	'946519293410029568',
 	'1014748172716871680',
 	'959449106877669448',
@@ -62,6 +64,11 @@ export const roleOptions: MessageSelectOptionData[] = [
 		label: 'VAIML',
 		description: 'Victoria Artificial Intelligence and Machine Learning',
 		value: roles.VAIML
+	},
+	{
+		label: 'EngiQueering',
+		description: 'Faculty of Engineering Queer student club',
+		value: roles.EngiQueering
 	},
 	{
 		label: 'Game Night',
