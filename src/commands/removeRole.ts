@@ -4,7 +4,7 @@ import { Command } from '@sapphire/framework';
 import { GuildMember, MessageActionRow, MessageSelectMenu } from 'discord.js';
 
 @ApplyOptions<Command.Options>({
-	description: 'Subscribe to updates from one of the groups in the Collective.'
+	description: 'Unsubscribe to updates from one of the groups in the Collective.'
 })
 export class UserCommand extends Command {
 	public override registerApplicationCommands(registry: Command.Registry) {
@@ -55,7 +55,7 @@ export class UserCommand extends Command {
 		);
 
 		await interaction.reply({
-			content: 'Subscribe to updates from one of the groups or events.',
+			content: 'Unsubscribe to updates from one of the groups or events.',
 			components: [row],
 			ephemeral: true
 		});

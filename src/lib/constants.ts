@@ -67,7 +67,7 @@ export const roleOptions: MessageSelectOptionData[] = [
 	},
 	{
 		label: 'EngiQueering',
-		description: 'Faculty of Engineering Queer student club',
+		description: 'Faculty of Engineering Queer Students Club',
 		value: roles.EngiQueering
 	},
 	{
