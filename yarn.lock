@@ -1320,7 +1320,7 @@ __metadata:
     "@typescript-eslint/eslint-plugin": 5.38.1
     "@typescript-eslint/parser": 5.38.1
     bull: ^4.8.5
-    bullmq: ^1.90.0
+    bullmq: ^2.0.0
     colorette: ^2.0.19
     discord-api-types: ^0.37.5
     discord.js: ^13.10.3
@@ -1643,20 +1643,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"bullmq@npm:^1.90.0":
-  version: 1.90.0
-  resolution: "bullmq@npm:1.90.0"
+"bullmq@npm:^2.0.0":
+  version: 2.2.0
+  resolution: "bullmq@npm:2.2.0"
   dependencies:
     cron-parser: ^4.6.0
-    get-port: 6.1.2
     glob: ^8.0.3
     ioredis: ^5.2.2
     lodash: ^4.17.21
     msgpackr: ^1.6.2
     semver: ^7.3.7
     tslib: ^2.0.0
-    uuid: ^8.3.2
-  checksum: d1659fe4d596a9f95dffcc0c084b8a8e76757f112c0b143ce1cdd0a6431cf18053581238956ea217ab2d0b0ed4b73439fc24f7ce944adbefa37d5b8fc36a9efd
+    uuid: ^9.0.0
+  checksum: 3cf03aae8a31f444da01ac3850f9c6eed63a34ee4d75e62ca9d066d19ba8efd40e325a35ec4c3ec914ce110d4cc3f76a518a9a0967cb184249a7cc0cddc3bf46
   languageName: node
   linkType: hard
 
@@ -3146,13 +3145,6 @@ __metadata:
     has: ^1.0.3
     has-symbols: ^1.0.3
   checksum: 252f45491f2ba88ebf5b38018020c7cc3279de54b1d67ffb70c0cdf1dfa8ab31cd56467b5d117a8b4275b7a4dde91f86766b163a17a850f036528a7b2faafb2b
-  languageName: node
-  linkType: hard
-
-"get-port@npm:6.1.2":
-  version: 6.1.2
-  resolution: "get-port@npm:6.1.2"
-  checksum: e3c3d591492a11393455ef220f24c812a28f7da56ec3e4a2512d931a1f196d42850b50ac6138349a44622eda6dc3c0ccd8495cd91376d968e2d9e6f6f849e0a9
   languageName: node
   linkType: hard
 
@@ -6119,12 +6111,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"uuid@npm:^8.3.0, uuid@npm:^8.3.2":
+"uuid@npm:^8.3.0":
   version: 8.3.2
   resolution: "uuid@npm:8.3.2"
   bin:
     uuid: dist/bin/uuid
   checksum: 5575a8a75c13120e2f10e6ddc801b2c7ed7d8f3c8ac22c7ed0c7b2ba6383ec0abda88c905085d630e251719e0777045ae3236f04c812184b7c765f63a70e58df
+  languageName: node
+  linkType: hard
+
+"uuid@npm:^9.0.0":
+  version: 9.0.0
+  resolution: "uuid@npm:9.0.0"
+  bin:
+    uuid: dist/bin/uuid
+  checksum: 8dd2c83c43ddc7e1c71e36b60aea40030a6505139af6bee0f382ebcd1a56f6cd3028f7f06ffb07f8cf6ced320b76aea275284b224b002b289f89fe89c389b028
   languageName: node
   linkType: hard
 
