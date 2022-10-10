@@ -1,3 +1,5 @@
+import '@skyra/env-utilities';
+
 declare module '@skyra/env-utilities' {
 	interface Env {
 		CLIENT_PREFIX: string;

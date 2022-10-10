@@ -1,6 +1,6 @@
 import '#lib/setup';
 import { container, SapphireClient } from '@sapphire/framework';
-import { envParseInteger, envParseString } from '@skyra/env-utilities';
+import { envParseString } from '@skyra/env-utilities';
 import { ScheduledTaskRedisStrategy } from '@sapphire/plugin-scheduled-tasks/register-redis';
 
 const client = new SapphireClient({
