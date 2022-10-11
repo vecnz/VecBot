@@ -1,4 +1,5 @@
 import { roleArray, roleOptions } from '#lib/constants';
+import { checkVerified } from '#lib/utils';
 import { ApplyOptions } from '@sapphire/decorators';
 import { Command } from '@sapphire/framework';
 import { GuildMember, MessageActionRow, MessageSelectMenu } from 'discord.js';
@@ -27,6 +28,14 @@ export class UserCommand extends Command {
 		}
 
 		const member = guild.members.cache.get(interaction.user.id) as GuildMember;
+
+		if (!checkVerified) {
+			await interaction.reply({
+				content: 'You must be verified to use this command. Run `/verify` to verify.',
+				ephemeral: true
+			});
+			return;
+		}
 
 		const currentRoles: string[] = [];
 		member.roles.cache.forEach((role) => {
