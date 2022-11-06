@@ -4,7 +4,7 @@ export const roles: { [key: string]: string } = {
 	VSEC: '942345004062507028',
 	VISDA: '934335156360208384',
 	GDSC: '1014687013775081522',
-	VGDC: '1014687057421017141',
+	GDG: '1014687057421017141',
 	'Looking Glass': '1014687348673490944',
 	VAIML: '1016475957596540979',
 	EngiQueering: '1024518933224640542',
@@ -51,9 +51,9 @@ export const roleOptions: MessageSelectOptionData[] = [
 		value: roles.GDSC
 	},
 	{
-		label: 'VGDC',
-		description: 'Victoria Game Developers Club',
-		value: roles.VGDC
+		label: 'GDG',
+		description: 'Game Development Group',
+		value: roles.GDG
 	},
 	{
 		label: 'Looking Glass',
