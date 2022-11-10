@@ -489,10 +489,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@prisma/engines@npm:4.6.0":
-  version: 4.6.0
-  resolution: "@prisma/engines@npm:4.6.0"
-  checksum: d964ab9641153410d1e4b5c81dfb4be309964b133eb891140cf8636a7e8bfd33228f92b83a3b700b1b97eaa0b58aa5ad113836e8d76ff3cc901b500938736214
+"@prisma/engines@npm:4.6.1":
+  version: 4.6.1
+  resolution: "@prisma/engines@npm:4.6.1"
+  checksum: ca49b8ffdfc69fe8ed8362d2670f46e7f6333e5ee92096ac88aada2cec0763e29def0e7c23dc5703cec29e14b067bad3bd52475badcbf687e5483c9dbaed05e8
   languageName: node
   linkType: hard
 
@@ -1313,7 +1313,7 @@ __metadata:
     pinst: 3.0.0
     prettier: 2.7.1
     pretty-quick: 3.1.3
-    prisma: 4.6.0
+    prisma: 4.6.1
     reflect-metadata: ^0.1.13
     ts-node: 10.9.1
     tsc-watch: 5.0.3
@@ -4965,15 +4965,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prisma@npm:4.6.0":
-  version: 4.6.0
-  resolution: "prisma@npm:4.6.0"
+"prisma@npm:4.6.1":
+  version: 4.6.1
+  resolution: "prisma@npm:4.6.1"
   dependencies:
-    "@prisma/engines": 4.6.0
+    "@prisma/engines": 4.6.1
   bin:
     prisma: build/index.js
     prisma2: build/index.js
-  checksum: eee15955638c67dcdff8d0338a1cad5f4b3fc62f6894336543d6f3d09456295f5e23916f7bedbb396a5ca5d7be5fa62dc52d49e95f971ad3968e6d650d9934ea
+  checksum: 8041ac71b383bff3e737c2f1a047c89d8ff7684640fe842233186a561996f607b2eacb9451df6fc0135fe1ec53a8fe0dd1edbc84b3c58becad9d38850f5f0bf4
   languageName: node
   linkType: hard
 
