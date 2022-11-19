@@ -1,5 +1,4 @@
-import { roleArray, roleOptions } from '#lib/constants';
-import { checkVerified } from '#lib/utils';
+import { checkVerified, getRoles } from '#lib/utils';
 import { ApplyOptions } from '@sapphire/decorators';
 import { Command } from '@sapphire/framework';
 import { GuildMember, MessageActionRow, MessageSelectMenu } from 'discord.js';
@@ -37,15 +36,9 @@ export class UserCommand extends Command {
 			return;
 		}
 
-		const currentRoles: string[] = [];
-		member.roles.cache.forEach((role) => {
-			currentRoles.push(role.id);
-			return roleArray.includes(role.id);
-		});
+		const roles = await getRoles(member);
 
-		const newRoleOptions = roleOptions.filter((role) => !currentRoles.includes(role.value));
-
-		if (newRoleOptions.length === 0) {
+		if (roles.length === 0) {
 			await interaction.reply({
 				content: 'You already have all the available roles.',
 				ephemeral: true
@@ -53,13 +46,19 @@ export class UserCommand extends Command {
 			return;
 		}
 
+		const roleOptions = roles.map((role) => ({
+			label: role.name,
+			value: role.id,
+			description: role.description
+		}));
+
 		const row = new MessageActionRow().addComponents(
 			new MessageSelectMenu()
 				.setCustomId('addRole')
 				.setMinValues(1)
-				.setMaxValues(newRoleOptions.length)
+				.setMaxValues(roles.length)
 				.setPlaceholder('Nothing selected')
-				.setOptions(newRoleOptions)
+				.setOptions(roleOptions)
 		);
 
 		await interaction.reply({

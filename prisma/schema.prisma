@@ -1,0 +1,55 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+    provider = "prisma-client-js"
+}
+
+datasource db {
+    provider = "postgresql"
+    url      = env("DATABASE_URL")
+}
+
+model Course {
+    id         Int          @id @default(autoincrement())
+    name       String
+    channel    String
+    discord    String?
+    trimester  Int
+    active     Boolean      @default(true)
+    createdAt  DateTime     @default(now())
+    updatedAt  DateTime     @updatedAt
+    CourseCode CourseCode[]
+}
+
+model CourseCode {
+    id        Int      @id @default(autoincrement())
+    code      String
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+    course    Course   @relation(fields: [courseId], references: [id])
+    courseId  Int
+    guild     Guild    @relation(fields: [guildId], references: [id])
+    guildId   String
+}
+
+model Role {
+    id               String   @id @unique
+    name             String
+    description      String
+    discordId        String   @unique
+    createdAt        DateTime @default(now())
+    guildId          String
+    verifiedRequired Boolean  @default(true)
+    Guild            Guild    @relation(fields: [guildId], references: [id])
+}
+
+model Guild {
+    id         String       @id @unique
+    name       String
+    createdAt  DateTime     @default(now())
+    updatedAt  DateTime     @updatedAt
+    roles      Role[]
+    signUpLink String?
+    CourseCode CourseCode[]
+}

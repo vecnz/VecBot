@@ -1,5 +1,4 @@
-import { roleOptions, roleArray } from '#lib/constants';
-import { checkVerified } from '#lib/utils';
+import { checkVerified, getCurrentRoles } from '#lib/utils';
 import { ApplyOptions } from '@sapphire/decorators';
 import { Command } from '@sapphire/framework';
 import { GuildMember, MessageActionRow, MessageSelectMenu } from 'discord.js';
@@ -37,16 +36,14 @@ export class UserCommand extends Command {
 			return;
 		}
 
-		// get all roles that are in roles
-		const currentRoles: string[] = [];
-		member.roles.cache.forEach((role) => {
-			currentRoles.push(role.id);
-			return roleArray.includes(role.id);
-		});
+		const roles = await getCurrentRoles(member);
+		const roleOptions = roles.map((role) => ({
+			label: role.name,
+			value: role.id,
+			description: role.description
+		}));
 
-		const newRoleOptions = roleOptions.filter((role) => currentRoles.includes(role.value));
-
-		if (newRoleOptions.length === 0) {
+		if (roles.length === 0) {
 			await interaction.reply({
 				content: 'You are not subscribed to any groups or events.',
 				ephemeral: true
@@ -58,9 +55,9 @@ export class UserCommand extends Command {
 			new MessageSelectMenu()
 				.setCustomId('removeRole')
 				.setMinValues(1)
-				.setMaxValues(newRoleOptions.length)
+				.setMaxValues(roles.length)
 				.setPlaceholder('Nothing selected')
-				.setOptions(newRoleOptions)
+				.setOptions(roleOptions)
 		);
 
 		await interaction.reply({
