@@ -24,7 +24,7 @@
 		"#root/*": "./dist/*.js"
 	},
 	"dependencies": {
-		"@sapphire/decorators": "^5.0.0",
+		"@sapphire/decorators": "^6.0.0",
 		"@sapphire/discord-utilities": "^2.12.0",
 		"@sapphire/discord.js-utilities": "^5.1.2",
 		"@sapphire/fetch": "^2.4.1",
