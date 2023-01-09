@@ -1,4 +1,4 @@
-import type { MessageSelectOptionData } from 'discord.js';
+import type { APISelectMenuOption } from 'discord.js';
 export const roles: { [key: string]: string } = {
 	VRAM: '900923051619778590',
 	VSEC: '942345004062507028',
@@ -29,7 +29,7 @@ export const roleArray = [
 	'866479683167453194'
 ];
 
-export const roleOptions: MessageSelectOptionData[] = [
+export const roleOptions: APISelectMenuOption[] = [
 	{
 		label: 'VRAM',
 		description: 'Victoria Robotics and Mechatronics',

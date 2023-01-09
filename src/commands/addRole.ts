@@ -2,7 +2,7 @@ import { roleArray, roleOptions } from '#lib/constants';
 import { checkVerified } from '#lib/utils';
 import { ApplyOptions } from '@sapphire/decorators';
 import { Command } from '@sapphire/framework';
-import { GuildMember, MessageActionRow, MessageSelectMenu } from 'discord.js';
+import { GuildMember, ActionRowBuilder, StringSelectMenuBuilder, MessageActionRowComponentBuilder } from 'discord.js';
 
 @ApplyOptions<Command.Options>({
 	description: 'Subscribe to updates from one of the groups in the Collective.'
@@ -17,7 +17,7 @@ export class UserCommand extends Command {
 			);
 	}
 
-	public override async chatInputRun(interaction: Command.ChatInputInteraction) {
+	public override async chatInputRun(interaction: Command.ChatInputCommandInteraction) {
 		const { guild } = interaction;
 		if (!guild) {
 			await interaction.reply({
@@ -53,8 +53,8 @@ export class UserCommand extends Command {
 			return;
 		}
 
-		const row = new MessageActionRow().addComponents(
-			new MessageSelectMenu()
+		const row = new ActionRowBuilder<MessageActionRowComponentBuilder>().addComponents(
+			new StringSelectMenuBuilder()
 				.setCustomId('addRole')
 				.setMinValues(1)
 				.setMaxValues(newRoleOptions.length)

@@ -1,5 +1,6 @@
 import { ApplyOptions } from '@sapphire/decorators';
 import { Command } from '@sapphire/framework';
+import { ChannelType } from 'discord.js';
 
 @ApplyOptions<Command.Options>({
 	description: 'Micropad!'
@@ -14,15 +15,15 @@ export class UserCommand extends Command {
 			);
 	}
 
-	public override async chatInputRun(interaction: Command.ChatInputInteraction) {
+	public override async chatInputRun(interaction: Command.ChatInputCommandInteraction) {
 		// check if user has permission to send a message in this channel
 		let ephemeral;
 		if (interaction.channel === null) {
 			ephemeral = true;
-		} else if (interaction.channel.type === 'DM') {
+		} else if (interaction.channel.type === ChannelType.DM) {
 			ephemeral = false;
 		} else {
-			ephemeral = !interaction.channel?.permissionsFor(interaction.user)?.has('SEND_MESSAGES');
+			ephemeral = !interaction.channel?.permissionsFor(interaction.user)?.has('SendMessages');
 		}
 
 		await interaction.reply({

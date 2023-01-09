@@ -1,12 +1,16 @@
 import '#lib/setup';
-import { container, SapphireClient } from '@sapphire/framework';
+import { container, LogLevel, SapphireClient } from '@sapphire/framework';
 import { envParseString } from '@skyra/env-utilities';
 import { ScheduledTaskRedisStrategy } from '@sapphire/plugin-scheduled-tasks/register-redis';
+import { GatewayIntentBits, Partials } from 'discord.js';
 
 const client = new SapphireClient({
 	shards: 'auto',
-	partials: ['MESSAGE', 'CHANNEL', 'REACTION'],
-	intents: ['GUILDS', 'GUILD_MEMBERS'],
+	partials: [Partials.Message, Partials.Channel, Partials.Reaction],
+	intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMembers],
+	logger: {
+		level: envParseString('NODE_ENV') === 'production' ? LogLevel.Info : LogLevel.Debug
+	},
 	tasks: {
 		strategy: new ScheduledTaskRedisStrategy({
 			bull: {
