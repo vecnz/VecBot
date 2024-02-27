@@ -925,14 +925,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sapphire/plugin-logger@npm:^3.0.1":
-  version: 3.0.3
-  resolution: "@sapphire/plugin-logger@npm:3.0.3"
+"@sapphire/plugin-logger@npm:^4.0.0":
+  version: 4.0.2
+  resolution: "@sapphire/plugin-logger@npm:4.0.2"
   dependencies:
-    "@sapphire/timestamp": ^1.0.1
-    colorette: ^2.0.19
-    tslib: ^2.5.0
-  checksum: 5e956474366daea23ef3a1c3d751850f9b7bcff9e9c8819ee71804ad981cbc30f59bdaa1e2701a2b9024e38ad73c327a1b4050dc160ddecea0e3756698ed6ddc
+    "@sapphire/timestamp": ^1.0.3
+    colorette: ^2.0.20
+  checksum: 0e1660073c3f4cb5e4e9940d4a831dc86e2de56368802bd1df54e71d40872cca9dd747e38ef68b34642ec41427642056d11af8a5dc4e0a19acae57aa3f06a0ed
   languageName: node
   linkType: hard
 
@@ -1048,6 +1047,13 @@ __metadata:
   version: 1.0.1
   resolution: "@sapphire/timestamp@npm:1.0.1"
   checksum: 40320946cb8fcbbb610b94019882eb39c900b9af87e4a2d173299efaa062921662d950780c273fd44f4ec9877983d725d28f0b999314f338f3bfc0ab3c45a8cb
+  languageName: node
+  linkType: hard
+
+"@sapphire/timestamp@npm:^1.0.3":
+  version: 1.0.3
+  resolution: "@sapphire/timestamp@npm:1.0.3"
+  checksum: 709751f37bc986c4cb2ecebf0708879ee68df627a51f166cb8af1123b9ea1ad4a06432d89c0e54e6e9cf201d6b4dc2ee446dd46a89613b5295f21b3dc8559b47
   languageName: node
   linkType: hard
 
@@ -1612,7 +1618,7 @@ __metadata:
     "@sapphire/fetch": ^2.4.1
     "@sapphire/framework": ^4.0.0
     "@sapphire/plugin-editable-commands": ^3.0.0
-    "@sapphire/plugin-logger": ^3.0.1
+    "@sapphire/plugin-logger": ^4.0.0
     "@sapphire/plugin-scheduled-tasks": ^6.0.0
     "@sapphire/plugin-subcommands": ^4.0.0
     "@sapphire/prettier-config": 1.4.5
@@ -2206,7 +2212,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"colorette@npm:^2.0.19":
+"colorette@npm:^2.0.19, colorette@npm:^2.0.20":
   version: 2.0.20
   resolution: "colorette@npm:2.0.20"
   checksum: 0c016fea2b91b733eb9f4bcdb580018f52c0bc0979443dad930e5037a968237ac53d9beb98e218d2e9235834f8eebce7f8e080422d6194e957454255bde71d3d
