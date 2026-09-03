@@ -807,12 +807,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sapphire/discord-utilities@npm:^3.0.0, @sapphire/discord-utilities@npm:^3.0.2":
+"@sapphire/discord-utilities@npm:^3.0.0":
   version: 3.0.2
   resolution: "@sapphire/discord-utilities@npm:3.0.2"
   dependencies:
     discord-api-types: ^0.37.38
   checksum: d023d99b7d3ac9d4849151d8a5266206cea829f24fb9c2f5f60eefe5c24c535a26d4674ddd7513b89a96afd05c47fa536ad616e2c832d2c6aefd8af966c63cb6
+  languageName: node
+  linkType: hard
+
+"@sapphire/discord-utilities@npm:^3.5.0":
+  version: 3.5.0
+  resolution: "@sapphire/discord-utilities@npm:3.5.0"
+  dependencies:
+    discord-api-types: ^0.38.1
+  checksum: 81da732214ce2e782a7a02d5bedd2c19f572be06b9acfbc8ea5752961bdb8d1eb31cc43368e3b26f2afa38eda35853df055d5818b49523cf58c13a29ed5b0097
   languageName: node
   linkType: hard
 
@@ -828,15 +837,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sapphire/discord.js-utilities@npm:^6.0.0":
-  version: 6.0.6
-  resolution: "@sapphire/discord.js-utilities@npm:6.0.6"
+"@sapphire/discord.js-utilities@npm:^7.0.0":
+  version: 7.3.3
+  resolution: "@sapphire/discord.js-utilities@npm:7.3.3"
   dependencies:
-    "@sapphire/discord-utilities": ^3.0.2
-    "@sapphire/duration": ^1.1.0
-    "@sapphire/utilities": ^3.11.1
-    tslib: ^2.5.0
-  checksum: b245fc63fa23e664c046419c847398287ef1ca98900a845c486fe2a1c2349b74a196483a04c419f158ec5eead6735e48d37ceba089fa452cc4b38f304708a314
+    "@sapphire/discord-utilities": ^3.5.0
+    "@sapphire/duration": ^1.2.0
+    "@sapphire/utilities": ^3.18.2
+    tslib: ^2.8.1
+  checksum: 70d65fa7cf0760522db96131fbfb57a8880f7b27d75ecaf4a69bf729555da06942eecd482d1ad94d3618f93c9d3186fea4f0a2398d931a8f50281a363451e32c
   languageName: node
   linkType: hard
 
@@ -851,6 +860,13 @@ __metadata:
   version: 1.1.0
   resolution: "@sapphire/duration@npm:1.1.0"
   checksum: bf145249804560e20621fb593110dc4084a7597f04669695250921ccc7ca2e867a1f0a914c3fdfc9d120ee13689668a104b86861f312ffcce293e9551f4359c9
+  languageName: node
+  linkType: hard
+
+"@sapphire/duration@npm:^1.2.0":
+  version: 1.2.0
+  resolution: "@sapphire/duration@npm:1.2.0"
+  checksum: 4ac6aa02e3f6542a824842a05c65d4bccadfe81d96eefc52c4844f658739770272a2a254cd9356fcf9b956a3ed715593a729b530ef10f2278e7dc6dcfd14c8db
   languageName: node
   linkType: hard
 
@@ -1076,6 +1092,13 @@ __metadata:
   version: 3.11.1
   resolution: "@sapphire/utilities@npm:3.11.1"
   checksum: e70a7d1b8f0d5c810420a2113ed6f4f54956b3ede0afd7aab9f5cea32266ed0946f777838f73f3df8e75bc8d29026d287a5371f544ad28882acdcfd5eb092b69
+  languageName: node
+  linkType: hard
+
+"@sapphire/utilities@npm:^3.18.2":
+  version: 3.18.3
+  resolution: "@sapphire/utilities@npm:3.18.3"
+  checksum: e42db0305a074e8c20d676d3cd380caf7d44ca43c8a2faa923b453839955295b6a8c4083a98dd89a9b29b154608948e9df6bb0d3ecaffbcaff21a7e47f3f7ee6
   languageName: node
   linkType: hard
 
@@ -1607,7 +1630,7 @@ __metadata:
     "@commitlint/config-conventional": 17.6.1
     "@sapphire/decorators": ^6.0.0
     "@sapphire/discord-utilities": ^3.0.0
-    "@sapphire/discord.js-utilities": ^6.0.0
+    "@sapphire/discord.js-utilities": ^7.0.0
     "@sapphire/eslint-config": 4.4.1
     "@sapphire/fetch": ^2.4.1
     "@sapphire/framework": ^4.0.0
@@ -2483,6 +2506,13 @@ __metadata:
   version: 0.37.39
   resolution: "discord-api-types@npm:0.37.39"
   checksum: 21346afd1e9987bba9b8e93c51b4a4279c10ffd3251806800385b19631c9f258f26524857b6f88da995285f35f0d956b3dde2e1ed6eb5233e5b2122754fbaee7
+  languageName: node
+  linkType: hard
+
+"discord-api-types@npm:^0.38.1":
+  version: 0.38.55
+  resolution: "discord-api-types@npm:0.38.55"
+  checksum: 2b02b5d64fccd55968f6e14d7c452e875e0b3603310d57e75fa8eb5ea9bbbc4982b241177b9c1fa432d2e53f2ec35ba4e9cdf9094200ec7535292c8f3e3e863d
   languageName: node
   linkType: hard
 
@@ -6171,6 +6201,13 @@ __metadata:
   version: 2.5.0
   resolution: "tslib@npm:2.5.0"
   checksum: ae3ed5f9ce29932d049908ebfdf21b3a003a85653a9a140d614da6b767a93ef94f460e52c3d787f0e4f383546981713f165037dc2274df212ea9f8a4541004e1
+  languageName: node
+  linkType: hard
+
+"tslib@npm:^2.8.1":
+  version: 2.8.1
+  resolution: "tslib@npm:2.8.1"
+  checksum: e4aba30e632b8c8902b47587fd13345e2827fa639e7c3121074d5ee0880723282411a8838f830b55100cbe4517672f84a2472667d355b81e8af165a55dc6203a
   languageName: node
   linkType: hard
 
